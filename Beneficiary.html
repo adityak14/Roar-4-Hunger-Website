@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Benificiary search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+.container{
+    padding: 3%;
+}
+
+body{
+    background: rgb(252, 250, 250);
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 350px;
+}
+table tr th,
+table tr td {
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 5px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  border-left: 1px solid white;
+}
+table tr th {
+  background: #eee;
+  border-top: 1px solid white;
+  text-align: left;
+}
+
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 20px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 20px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+</style>
+<body onload="GenerateTable()">
+    <div class="container">
+    <form method="post" action="">
+    <div class="text-center">
+        <div class="form-group">
+            <label for="my-input"> <b> <h2> Beneficiary Search </h2> </b> </label>
+            <!-- <input id="my-input" class="form-control" type="tel" name="phoneno" placeholder="Beneficiary mobile no">
+            <button class="btn btn-link" type="search"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Benificiary mobile no" aria-label="Beneficiary mobile no" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="search" id="searchbutton"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>  
+    </form>
+    <br>
+    <!-- <div class="text-center">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Name</th>
+                <th scope="col">Packets</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>1254698742</td>
+                <td>Otto</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>6658974562</td>
+                <td>Thornton</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>1254698742</td>
+                <td>Otto</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>6658974562</td>
+                <td>Thornton</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+    </div> -->
+
+
+    <!-- <input type="button" id="databutton" value="Show beneficiary data"  /> -->
+    <hr />
+    <div id="dvTable">
+      <div class="text-center">
+        <table class="table table-hover table-bordered" id="jstable">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Name</th>
+              <th scope="col">Packets</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+</body>
+</html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+      var count=0;
+      //Build an array containing Customer records.
+      var customers = new Array();
+      customers.push([1, "1236457890", "Khan" , 3]);
+      customers.push([2, "5412368790", "Mudassar Khan" , 4]);
+      customers.push([3, "9833939410", "Suzanne Mathews" , 3]);
+      var i = customers.length;
+      var sum = 0;
+      while (--i) sum += customers[i][0]
+      console.log(sum);
+
+
+      for(var i=0;i<customers.length;i++)
+      {
+        var tableString = "<tr>";
+        tableString += "<td>" + customers[i][0] + "</td>";
+        tableString += "<td>" + customers[i][1] + "</td>";
+        tableString += "<td>" + customers[i][2] + "</td>";
+        tableString += "<td>" + customers[i][3] + "</td>";
+        tableString += "<tr>";
+        console.log(tableString);
+        
+        $('table tbody').append(tableString);
+      }
+      count++;
+      if(count==1){
+      document.getElementById("databutton").disabled = true;
+      }
+
+      // var table = document.getElementById("jstable");
+
+
+      // customers.push(" "," ", sum);
+      //Create a HTML Table element.
+
+      // To create new table.
+      // var table = document.createElement("TABLE");
+      // table.border = "1";
+
+      // //Get the count of columns.
+      // var columnCount = customers[0].length;
+      // var table = document.getElementById("jstable");
+      // //Add the header row.
+      // var row = table.insertRow(-1);
+      // for (var i = 0; i < columnCount; i++) {
+      //     var headerCell = document.createElement("TH");
+      //     headerCell.innerHTML = customers[0][i];
+      //     row.appendChild(headerCell);
+      // }
+
+      // //Add the data rows.
+      // for (var i = 1; i < customers.length; i++) {
+      //     row = table.insertRow(-1);
+      //     for (var j = 0; j < columnCount; j++) {
+      //         var cell = row.insertCell(-1);
+      //         cell.innerHTML = customers[i][j];
+      //     }
+      // }
+
+      // var dvTable = document.getElementById("dvTable");
+      // dvTable.innerHTML = "";
+      // dvTable.appendChild(table);
+</script>
