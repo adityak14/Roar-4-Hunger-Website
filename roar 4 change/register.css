@@ -33,9 +33,9 @@
   }
   
   .col-2 {
-    width: -webkit-calc((100% - 50px) / 2);
-    width: -moz-calc((100% - 50px) / 2);
-    width: calc((100% - 50px) / 2);
+    width: -webkit-calc((100% - 30px) / 2);
+    width: -moz-calc((100% - 30px) / 2);
+    width: calc((100% - 30px) / 2);
   }
   
   @media (max-width: 767px) {
@@ -83,11 +83,6 @@
   fieldset, legend {
     margin: 0;
     padding: 0;
-    
-  }
-
-  body{
-    background: rgb(255, 253, 208);
   }
   
   /**
@@ -253,7 +248,7 @@
      ========================================================================== */
   .btn {
     display: inline-block;
-    line-height: 40px;
+    line-height: 50px;
     padding: 0 50px;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -457,7 +452,7 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background:  rgb(255, 123, 0);
+    background: #57b846;
   }
   
   .checkmark {
@@ -636,15 +631,13 @@
   }
   
   .card-4 .card-body {
-    padding: 50px 50px;
-    padding-bottom: 65px;
-    
+    padding: 57px 65px;
+    padding-bottom: 105px;
   }
   
   @media (max-width: 767px) {
     .card-4 .card-body {
-      padding: 50px 30px;
-      
+      padding: 50px 40px;
     }
   }
   

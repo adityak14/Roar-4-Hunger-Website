@@ -28,7 +28,7 @@ body {
 
 .form-label-group > input,
 .form-label-group > label {
-  height: 4.0rem; 
+  height: 3.125rem;
   padding: .75rem;
 }
 
@@ -101,35 +101,3 @@ body {
     color: #777;
   }
 }
-
-
-.login-block{
-
-  background: orangered;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #FFB88C, orangered);  
-  background: linear-gradient(to bottom, #FFB88C,orangered); 
-  float:left;
-  width:100%;
-  padding : 50px 0;
-  }
-  
-  .banner-sec
-  {
-      background: white  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;
-  }
-  
-  .container-fluid
-  {
-      background:#fff;  box-shadow:15px 20px 0px rgba(0,0,0,0.1);
-  }
-  
-  .carousel-inner
-  {
-      border-radius:10px 10px 10px 10px;
-     
-  }
-  
-  .carousel-caption
-  {
-      text-align:left; left:5%;
-  }

@@ -31,8 +31,58 @@
                 <div class="card-body">
                     <h2 class="title">Register to bring about a Change!</h2>
                     <form method="POST">
-                       
-                        <div class="row row-space">
+                    <label class="label">Profile Picture</label> 
+                      <center> 
+                        <!-- USE WEBCAM  -->
+                        <!-- CSS -->
+                            <style>
+                            #my_camera{
+                             width: 100px;
+                             height: 100px;
+                             border: 1px solid black;
+                            }
+                            </style>
+
+                            <div id="my_camera"></div><br>
+                           
+                            <button>
+                            <input type="button"  type="submit" value="Take Snapshot" onClick="take_snapshot()">
+                            </button>
+                            <div id="results" ></div>
+                             
+                            <!-- Webcam.min.js -->
+                            <script type="text/javascript" src="js/webcam.min.js"></script>
+
+                            <!-- Configure a few settings and attach camera -->
+                            <script language="JavaScript">
+                             Webcam.set({
+                              width: 150,
+                              height: 150,
+                              image_format: 'jpeg',
+                              jpeg_quality: 90
+                             });
+                             Webcam.attach( '#my_camera' );
+
+                            // Code to handle taking the snapshot and displaying it locally -->
+                            function take_snapshot() {
+                             
+                             // take snapshot and get image data
+                             Webcam.snap( function(data_uri) {
+                              // display results in page
+                             document.getElementById('results').innerHTML = 
+                              '<img src="'+data_uri+'"/>';
+                              } );
+                             Webcam.reset();
+                             
+                           }
+                           function refresh() {
+                               $("#my_camera").parent().hide();
+                           }
+
+                            
+                            </script>
+                        </center>
+                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">first name</label>
@@ -82,14 +132,14 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="phone" name="phone">
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
                                 <div class="input-group">
                                     <label class="label">Emergency Phone Number</label>
-                                    <input class="input--style-4" type="text" name="ephone" required>
+                                    <input class="input--style-4" type="phone" name="ephone" required>
                                 </div>
                             </div>
                         <div class="col-4">
@@ -147,7 +197,8 @@
                                     <label class="label">Country</label>
                                     <input class="input--style-4" type="text" name="country" required>
                                 </div>
-                    </div>   
+                    </div>  
+                    <div class="col-4"> 
                         <div class="input-group">
                             <label class="label">Number of Packets</label>
                             <div class="rs-select2 js-select-simple select--no-search">
@@ -162,7 +213,58 @@
                                 <div class="select-dropdown"></div>
                             </div>
                         </div>
-                    
+                           
+                            
+                          
+                        <div class="row row-space"> 
+                        <label class="label">
+                                            <input type="checkbox" class="form-check-input" value="" id="myCheck"  onclick="myFunction()">Not Patient?
+                                            <span class=""></span>
+                        </label>        
+                        </div>     
+                            <div id="patient" style="display:none">
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">first name</label>
+                                    <input class="input--style-4" type="text" name="pfirst_name" required>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">last name</label>
+                                    <input class="input--style-4" type="text" name="plast_name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-4">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+                                    <input class="input--style-4" type="phone" name="patphone">
+                                </div>
+                            </div>
+
+                            </div>
+
+                            <script>
+                            function myFunction() {
+                              var checkBox = document.getElementById("myCheck");
+                              var text = document.getElementById("patient");
+                              if (checkBox.checked == true){
+                                text.style.display = "block";
+                              } else {
+                                 text.style.display = "none";
+                              }
+                            }
+                            </script>
+                     
+                     <!--   <div id="patient">
+                            
+                        </div>-->
+
+                        
+
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>
@@ -171,7 +273,7 @@
             </div>
         </div>
     </div>
-
+</form>
     
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -182,8 +284,28 @@
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+</style>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<div class="footer">
+  <footer>  
+<H4>
+  <p align="right"> 
+  © 2019 powered by JUS &ensp; 
+  </p> 
+</H4>    
+</footer> 
+</div>
 
+
+</body>
+ 
 </html>
-<!-- end document-->

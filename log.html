@@ -15,8 +15,74 @@
     <title>Login Page</title>
   </head>
 <script src="auth.js"></script> 
+<style>
+.spinner {
+ 
+ width: 40px;
+ height: 40px;
+ position: absolute;
+   top: 48%;
+   left: 48%;
+ 
+ text-align: center;
+ 
+ -webkit-animation: sk-rotate 2.0s infinite linear;
+ animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+ width: 60%;
+ height: 60%;
+ display: inline-block;
+ position: absolute;
+ top: 0;
+ background-color: rgb(255, 123, 0);
+ border-radius: 100%;
+ 
+ -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+ animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+ top: auto;
+ bottom: 0;
+ -webkit-animation-delay: -1.0s;
+ animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+ 0%, 100% { -webkit-transform: scale(0.0) }
+ 50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+ 0%, 100% { 
+   transform: scale(0.0);
+   -webkit-transform: scale(0.0);
+ } 50% { 
+   transform: scale(1.0);
+   -webkit-transform: scale(1.0);
+ }
+}
+
+.spinner-wrapper {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color:rgb(248, 219, 156) ;
+z-index: 999999;
+}
+</style>
 <body>
+
   <section class="login-block" >
+    <br>
+    <br>
     <br>
     <br>
     <div class="container-fluid">
@@ -65,7 +131,7 @@
 		    <div class="col-md-5 login-sec">
 
         
-          <form class="form-signin" method="POST">
+          <form class="form-signin" method="POST" action="Beneficiary.html">
             <div class="text-center">
               <img class="rounded mx-auto d-block" src="logo.png" alt="" width="140" height="140" >
               
@@ -74,7 +140,7 @@
             </div>
           <br> 
             <div class="form-label-group">
-              <input type="text" id="username" class="form-control" placeholder="Username" required autofocus >
+              <input type="text" id="username" class="form-control input-lg" placeholder="Username" required autofocus>
               <label for="username">Username</label>
             </div>
           
@@ -86,61 +152,12 @@
             <button class="btn btn-primary btn-block" onclick="validate()" id="submit" name="submit" type="submit">Sign in</button>  
             <div>
           <br> 
-            <a href=""><h4 >Forgot Password?</h></a> <a  href=""><h4>New User</h4></a>
+            <a href=""><h4 >Forgot Password?</h></a> <a  href="register1.html"><h4>New User</h4></a>
           <br>
-            <p>By signing in, I agree to the <a href="terms.html" data-target="#modal" data-toggle="modal">terms and conditions</a>.</p>
-
-
-            
-          
-            <!-- The Modal -->
-            <div class="modal fade" id="modal">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h4 class="modal-title">Terms and Conditions</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  
-                  <!-- Modal body -->
-                  <div class="modal-body">
-                    <p>
-                      1) You may access most areas of this website without registering your details with us. Certain areas of this site are only open to you if you register. Any personal information you supply to us when you use our website will be used in accordance with our privacy policy.
-                    </p>
-                    <p>
-                      2) By accessing any part of this website, you shall be deemed to have accepted these terms of use and our privacy policy in full. If you do not accept them in full, you must leave this website immediately.
-                    </p>
-                    <p>
-                      3) Unless otherwise stated, the data and information you can access on this website has been developed and compiled by CAF or one of its licensors and as such is protected by copyright, database and other laws concerning intellectual property.  All rights in relation to such data and information (as well as in relation to the organisation and layout of our website and the underlying software code) are reserved by CAF and its licensors.
-                    </p>
-                    <p>
-                      4) You may access most areas of this website without registering your details with us. Certain areas of this site are only open to you if you register. Any personal information you supply to us when you use our website will be used in accordance with our privacy policy.
-                    </p>
-                    <p>
-                      5) While we endeavour to ensure that this website is normally available 24 hours a day, we shall not be liable if for any reason it is unavailable at any time or for any period.
-                    </p>
-            
-                    
-                  </div>
-                  
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          
+            <p>By signing in, I agree to the <a href="terms.html">terms and conditions</a>.</p>     
           </div>
-          </form> 
-     
-        </div>
-  
-  
-       
+          </form>    
+        </div>     
 	</div>
 </div>
 <H4>
@@ -149,4 +166,46 @@
 </section>
 
 </body>
+
+<div class="spinner-wrapper">
+  <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+ </div>   
 </html>
+
+
+<script >
+  $(document).ready(function() {
+  //Preloader
+  preloaderFadeOutTime = 4000;
+  function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();
+  });
+
+
+
+  $(document).ready(function() {
+    //$('#username').focus();
+
+    $('#submit').click(function() {
+
+        event.preventDefault(); // prevent PageReLoad
+
+       var ValidEmail = $('#username').val() === 'adi'; // User validate
+var ValidPassword = $('#password').val() === 'adi'; // Password validate
+
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
+            $('.valid').css('display', 'block');
+            window.location = "Beneficiary.html"; // go to home.html
+        }
+        else {
+            $('.error').css('display', 'block'); // show error msg
+        }
+    });
+});
+  </script>
