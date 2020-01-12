@@ -43,7 +43,7 @@ thead{
     <!-- Image and text -->
      <nav id="navtop" class="navbar">
       <a class="navbar-brand" href="#">
-        <img src="logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        <img src="logo1.png" width="50" height="50" class="d-inline-block align-top" alt="">
       </a>
 
       <a>
@@ -51,7 +51,7 @@ thead{
       </a>
 
       <a class="navbar-brand" href="#">
-        <img src="logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        <img src="logo1.png" width="50" height="50" class="d-inline-block align-top" alt="">
       </a>
  
     </nav>
@@ -74,45 +74,48 @@ thead{
                             </style>
 
                             <div id="my_camera"></div><br>
-                           
-                            <button>
-                            <input type="button"  type="submit" value="Take Snapshot" onClick="take_snapshot()">
-                            </button>
                             <div id="results" ></div>
-                             
-                            <!-- Webcam.min.js -->
-                            <script type="text/javascript" src="js/webcam.min.js"></script>
 
-                            <!-- Configure a few settings and attach camera -->
-                            <script language="JavaScript">
-                             Webcam.set({
-                              width: 150,
-                              height: 150,
-                              image_format: 'jpeg',
-                              jpeg_quality: 90
-                             });
-                             Webcam.attach( '#my_camera' );
+                            <div class="p-t-15">
+                                <button class="btn btn--radius-2 btn--blue"  type="submit"  onClick="take_snapshot()">Take Picture</button>
+                            </div>
 
-                            // Code to handle taking the snapshot and displaying it locally -->
-                            function take_snapshot() {
-                             
-                             // take snapshot and get image data
-                             Webcam.snap( function(data_uri) {
-                              // display results in page
-                             document.getElementById('results').innerHTML = 
-                              '<img src="'+data_uri+'"/>';
-                              } );
-                             Webcam.reset();
-                             
-                           }
-                           function refresh() {
-                               $("#my_camera").parent().hide();
-                           }
+                           <!-- Webcam.min.js -->
+                           <script type="text/javascript" src="js/webcam.min.js"></script>
 
+                           <!-- Configure a few settings and attach camera -->
+                           <script language="JavaScript">
+                            Webcam.set({
+                             width: 150,
+                             height: 150,
+                             image_format: 'jpeg',
+                             jpeg_quality: 90
+                            });
+                            Webcam.attach( '#my_camera' );
+
+                           // Code to handle taking the snapshot and displaying it locally -->
+                           function take_snapshot() {
                             
+                            // take snapshot and get image data
+                            Webcam.snap( function(data_uri) {
+                             // display results in page
+                            document.getElementById('results').innerHTML = 
+                             '<img src="'+data_uri+'"/>';
+                             } );
+                            
+                            refresh();
+                            
+                          }
+                          function refresh() {
+                           Webcam.reset();
+                           var x= document.getElementById('my_camera');
+                            
+                            x.style.display="none";
+                          }
+                           
                             </script>
                         </center>
-                       
+                       <br>
                          <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -235,7 +238,7 @@ thead{
 </body>
 <footer class="footer mt-auto py-3">
     <div class="container">  
-    <span style="color: rgb(255, 123, 0); float: right;"> <b> Copyright 2019... created by JUS </b> </span>
+    <span style="color: rgb(255, 123, 0); float: right;"> <b>  © 2019 powered by JUS &ensp;  </b> </span>
     </div>
   </footer>
 </html>
