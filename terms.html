@@ -77,11 +77,9 @@ thead{
                       <p>
                         5) While we endeavour to ensure that this website is normally available 24 hours a day, we shall not be liable if for any reason it is unavailable at any time or for any period.
                       </p>
-                      <form action="log.html" method="post">
                       <div class="p-t-10">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Back</button>
+                        <button class="btn btn--radius-2 btn--blue" onclick="back()" type="submit">Back</button>
                     </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -98,7 +96,10 @@ thead{
 <script type= "text/javascript" src = "js/countries.js"></script>
 <script language="javascript">
 	populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
-	
+  
+  function back() {
+    window.location= 'log.html';
+  }
 </script>
 
 

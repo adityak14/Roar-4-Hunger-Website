@@ -67,21 +67,7 @@
         // console.log(tableString);
         $('table tbody').append(tableString);
     }
-    //   var x = document.getElementById("jstabledata").rows.length;
-    //   console.log(x);
-      
-            // To display the sum of packets
-
-    // var totaldata = "<hr><tr><td>" + sum + "</td><td>" +"  "+ "</td><td>" +" "+ "</td><td>" + packetsum + "</td></tr>";
-    //   var totaldata = "<tr>";
-    //     totaldata += "<td><hr>" + (customers.length) + "</td>";
-    //     totaldata += "<td>" + " " + "</td>";
-    //     totaldata += "<td>" + " " + "</td>";
-    //     totaldata += "<td>" + " " + "</td>";
-    //     totaldata += "<td><hr>" + packetsum + "</td>";
-    //     totaldata += "<td>" + " " + "</td>";
-    //     totaldata += "</tr>";
-    //   $('table tbody').append(totaldata);
+  
 
       var totalbene = document.getElementById("totalbene");
       totalbene.innerHTML = customers.length;
@@ -101,15 +87,9 @@
 
        
         $("#jstable tbody tr").filter(function() {
-            // console.log($(this).text().toLowerCase().indexOf(value));
-            // if($(this).text().toLowerCase().indexOf(value) == -1){
-            //     count ++;
-            //     console.log(count);
-            // }
+          
             if($(this).text().toLowerCase().indexOf(value) == -1){
-                // var retVal = confirm("Phone number not found. Do you want to register ?");
-                // if( retVal == true ) {
-                //     console.log("hi");
+                
                     document.getElementById("newreg").innerHTML = "Phone number not found ! Click the <i style=\"color:black;\" class=\"fa fa-plus-circle fa-x\" aria-hidden=\"true\"></i> to register new beneficiary.";
 
                      $("#addbeneficiary").prop('disabled', false);
@@ -149,103 +129,17 @@
     // console.log($('#jstable tbody tr'));
 
     $("#jstable tbody tr").click(function (e) {
+      
       var td = $(this).children("td").map(function() {
         return $(this).text();
     }).get();
 
+      $.cookie("details", td);
+      window.location.href = "beneficiarydetails.html";
+      
      console.log(td);
      sessionStorage.setItem('myArray', td);
 
     //  window.location = 'beneficiarydetails.html' ;
 
    });
-
-    // -------------------------------------------------------------
-
-
-    // pagination
-    // var table = '#jstable';
-    // // $('#maxRows').on('change', function(){
-    //   $('.pagination').html('')
-    //   var trnum = 0
-    // //   var maxRows = parseInt($(this).val())
-    //     var maxRows = 10;
-    //   totalRows = $(table+' tbody tr').length;
-    //   console.log(totalRows/2);
-    //   $(table+' tr:gt(0) ').each(function(){
-    //     trnum++ ;
-    //     // console.log(trnum);
-    
-    //     // console.log($("tr").slice(0,36));
-    //     if(trnum> maxRows)
-    //     {
-    //       $(this).hide()
-    //     }
-    //     if(trnum<= maxRows)
-    //     {
-    //       $(this).show()
-    //     }
-        
-    //   })
-    //   if(customers.length > maxRows){
-    //     var pagenum = Math.ceil((customers.length)/maxRows)
-    //     console.log(maxRows,customers.length , pagenum);
-        
-    //     for(var i=1;i<=pagenum;)
-    //     {
-    //       $('.pagination').append('<li class=\"data-page\" data-page="'+i+'">\<span class="page-link">'+ i++ +'<span class="sr-only">(current)</span></span>\</li>').show()
-    //     }
-    //   }
-    //   $('.pagination li:first-child').addClass('active')
-    //   $('.pagination li').on('click', function(){
-    //     var pageNum = $(this).attr('data-page')
-    //     var trIndex = 0;
-    //     $('.pagination li').removeClass('active')
-    //     $(this).addClass('active')
-    //     $(table+' tr:gt(0)').each(function() {
-    //       trIndex++
-    //       if((trIndex > (maxRows*pageNum)) || (trIndex <= ((maxRows*pageNum)-maxRows)))
-    //       {
-    //         $(this).hide()
-    //       }else{
-    //         $(this).show()
-    //       }
-    //     })
-    //   })
-    // })
-
-
-
-
-      // var table = document.getElementById("jstable");
-
-      // customers.push(" "," ", sum);
-      //Create a HTML Table element.
-
-      // To create new table.
-      // var table = document.createElement("TABLE");
-      // table.border = "1";
-
-      // //Get the count of columns.
-      // var columnCount = customers[0].length;
-      // var table = document.getElementById("jstable");
-      // //Add the header row.
-      // var row = table.insertRow(-1);
-      // for (var i = 0; i < columnCount; i++) {
-      //     var headerCell = document.createElement("TH");
-      //     headerCell.innerHTML = customers[0][i];
-      //     row.appendChild(headerCell);
-      // }
-
-      // //Add the data rows.
-      // for (var i = 1; i < customers.length; i++) {
-      //     row = table.insertRow(-1);
-      //     for (var j = 0; j < columnCount; j++) {
-      //         var cell = row.insertCell(-1);
-      //         cell.innerHTML = customers[i][j];
-      //     }
-      // }
-
-      // var dvTable = document.getElementById("dvTable");
-      // dvTable.innerHTML = "";
-      // dvTable.appendChild(table);
